@@ -20,9 +20,9 @@ public class Toy implements Opening, Runnable {
         while (true) {
             action();
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                return;
             }
         }
     }

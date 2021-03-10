@@ -20,7 +20,7 @@ public class Gamer implements Opening, Runnable {
         for (int i = 0; i < 6; i++) {
             action();
             try {
-                TimeUnit.SECONDS.sleep(3);
+                TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
