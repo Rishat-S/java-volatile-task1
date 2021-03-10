@@ -2,7 +2,7 @@ package ru.netology;
 
 import java.util.concurrent.TimeUnit;
 
-public class Gamer implements Opening, Runnable {
+public class Gamer implements Runnable {
     Box box;
 
     public Gamer(Box box) {
@@ -10,15 +10,9 @@ public class Gamer implements Opening, Runnable {
     }
 
     @Override
-    public void action() {
-        System.out.println("Box open");
-        box.setOpen(true);
-    }
-
-    @Override
     public void run() {
         for (int i = 0; i < 6; i++) {
-            action();
+            box.openBox();
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
