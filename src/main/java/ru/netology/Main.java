@@ -6,10 +6,7 @@ public class Main {
         Opening gamer = new Gamer(box);
         Opening toy = new Toy(box);
 
-        new Thread(toy::action).start();
-
-        for (int i = 0; i < 6; i++) {
-            new Thread(gamer::action).start();
-        }
+        new Thread((Runnable) toy).start();
+        new Thread((Runnable) gamer).start();
     }
 }

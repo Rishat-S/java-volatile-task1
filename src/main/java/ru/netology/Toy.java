@@ -1,5 +1,7 @@
 package ru.netology;
 
+import java.util.concurrent.TimeUnit;
+
 public class Toy implements Opening, Runnable {
     Box box;
 
@@ -15,6 +17,13 @@ public class Toy implements Opening, Runnable {
 
     @Override
     public void run() {
-//        action();
+        while (true) {
+            action();
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
