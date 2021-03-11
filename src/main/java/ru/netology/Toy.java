@@ -11,7 +11,7 @@ public class Toy implements Runnable {
     public void run() {
         while (true) {
             if (Thread.currentThread().isInterrupted()) {
-                System.out.println("Toy interrupted");
+//                System.out.println("Toy interrupted");
                 return;
             }
             box.closeBox();

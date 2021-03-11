@@ -3,7 +3,7 @@ package ru.netology;
 import java.util.concurrent.TimeUnit;
 
 public class Gamer implements Runnable {
-    public static final int TIMEOUT = 1;
+    public static final int TIMEOUT = 3;
     Box box;
 
     public Gamer(Box box) {
