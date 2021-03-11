@@ -1,7 +1,7 @@
 package ru.netology;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Box box = new Box();
         Toy toy = new Toy(box);
         Gamer gamer = new Gamer(box);
@@ -12,9 +12,8 @@ public class Main {
         gamerThread.start();
         toyThread.start();
 
-        while (gamerThread.isAlive()) ;
+        while (gamerThread.isAlive());
 
         toyThread.interrupt();
-        System.out.println("Toy interrupted main");
     }
 }

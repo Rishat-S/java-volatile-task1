@@ -10,7 +10,12 @@ public class Toy implements Runnable {
     @Override
     public void run() {
         while (true) {
-            box.closeBox();
+            if (box.isOpen()) {
+                box.closeBox();
+            }
+            if (Thread.currentThread().isInterrupted()) {
+                return;
+            }
         }
     }
 }
