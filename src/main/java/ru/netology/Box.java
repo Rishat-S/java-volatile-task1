@@ -7,13 +7,31 @@ public class Box {
         return isOpen;
     }
 
-    public void openBox() {
+    public synchronized void openBox() {
+        if (isOpen) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         isOpen = true;
         System.out.println(Thread.currentThread().getName() + " opened the box");
+        notify();
     }
 
-    public void closeBox() {
+    public synchronized void closeBox() {
+        if (!isOpen) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
         isOpen = false;
         System.out.println(Thread.currentThread().getName() + " closed the box");
+        notify();
     }
 }

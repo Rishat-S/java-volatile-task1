@@ -9,8 +9,8 @@ public class Main {
         Thread toyThread = new Thread(toy,"Toy");
         Thread gamerThread = new Thread(gamer, "Gamer");
 
-        gamerThread.start();
         toyThread.start();
+        gamerThread.start();
 
         while (gamerThread.isAlive());
 
