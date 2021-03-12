@@ -3,35 +3,19 @@ package ru.netology;
 public class Box {
     private volatile boolean isOpen;
 
+    public Box() {
+        isOpen = false;
+    }
+
     public boolean isOpen() {
         return isOpen;
     }
 
-    public synchronized void openBox() {
-        if (isOpen) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    public void openBox() {
         isOpen = true;
-        System.out.println(Thread.currentThread().getName() + " opened the box");
-        notify();
     }
 
-    public synchronized void closeBox() {
-        if (!isOpen) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-//                e.printStackTrace();
-                Thread.currentThread().interrupt();
-                return;
-            }
-        }
+    public void closeBox() {
         isOpen = false;
-        System.out.println(Thread.currentThread().getName() + " closed the box");
-        notify();
     }
 }

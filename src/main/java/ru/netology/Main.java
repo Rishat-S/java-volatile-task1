@@ -6,14 +6,15 @@ public class Main {
         Toy toy = new Toy(box);
         Gamer gamer = new Gamer(box);
 
-        Thread toyThread = new Thread(toy,"Toy");
-        Thread gamerThread = new Thread(gamer, "Gamer");
+        Thread thread = new Thread(toy, "Toy");
+        Thread thread1 = new Thread(gamer, "Gamer");
+        System.out.println("Start game");
+        thread.start();
+        thread1.start();
 
-        toyThread.start();
-        gamerThread.start();
+        while (thread1.isAlive());
 
-        while (gamerThread.isAlive());
-
-        toyThread.interrupt();
+        toy.stopThread();
+        System.out.println("End game");
     }
 }
